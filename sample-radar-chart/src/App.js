@@ -1,28 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
-import FeedbackChart from './feedbackChart';
+import QuestionInputContainer from './components/questionInputContainer';
+import FeedbackChart from './components/feedbackChart';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          This is Marisa's Sample App!
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <QuestionInputContainer />
+
       <div style={{ height: '500px'}}>
-          <FeedbackChart />
-        </div>
+        <FeedbackChart />
+      </div>
     </div>
   );
 }

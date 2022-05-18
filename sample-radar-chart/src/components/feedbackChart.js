@@ -46,10 +46,8 @@ const data = [
   },
 ];
 
-export default class FeedbackChart extends PureComponent {
-  static demoUrl = 'https://codesandbox.io/s/radar-chart-specified-domain-mfl04';
-
-  render() {
+export default function FeedbackChart () {
+  const demoUrl = 'https://codesandbox.io/s/radar-chart-specified-domain-mfl04';
     return (
       <ResponsiveContainer width="100%" height="100%">
         <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
@@ -63,5 +61,4 @@ export default class FeedbackChart extends PureComponent {
         </RadarChart>
       </ResponsiveContainer>
     );
-  }
 }
