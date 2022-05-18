@@ -1,7 +1,4 @@
-import React, { PureComponent } from 'react';
-
-export default class QuestionInputContainer extends PureComponent {
-  render() {
+export default function QuestionInputContainer() {
     return (
       <div className='retro-form'>
         <h1 className="text-3xl font-bold text-left">
@@ -13,5 +10,4 @@ export default class QuestionInputContainer extends PureComponent {
         </label>
       </div>
     );
-  }
 }
