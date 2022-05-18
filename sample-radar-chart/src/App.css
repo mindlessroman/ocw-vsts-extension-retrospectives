@@ -32,7 +32,16 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.question-response-container {
+  background-color: green;
+}
+
+.quesetion-response-item {
+  background-color: red;
 }
