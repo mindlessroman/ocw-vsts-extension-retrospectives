@@ -1,7 +1,7 @@
 
-import { ParticipantResponseModel } from 'src/models/participantResponseModel'
-import { QuestionInformationModel } from 'src/models/questionInformationModel'
-import { NumericDictionary } from 'lodash'
+import { ParticipantResponseModel } from 'src/models/ParticipantResponseModel';
+import { QuestionInformationModel } from 'src/models/QuestionInformationModel';
+import { NumericDictionary } from 'lodash';
 
 export namespace TestHelper {
 
