@@ -20,6 +20,10 @@ export interface RadarChartContainerProps {
 
 // pass in List of QuestionInformationModel and List of Participant Response Model
 export default function RadarChartContainer(props: RadarChartContainerProps) {
+  const maxResponseRange = props.maxResponseRange;
+  const currentQuestions = props.questions;
+  const currentResponses = props.responses;
+
   ChartJS.register(
     RadialLinearScale,
     PointElement,
@@ -59,7 +63,7 @@ export default function RadarChartContainer(props: RadarChartContainerProps) {
           display: false
         },
         min: 0,
-        max: 200
+        max: maxResponseRange
       }
     }
   };
