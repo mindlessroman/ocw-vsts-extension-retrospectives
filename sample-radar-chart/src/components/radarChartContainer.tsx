@@ -11,11 +11,12 @@ import {
 import { Radar } from 'react-chartjs-2';
 import { ParticipantResponseModel } from '../models/participantResponseModel';
 import { QuestionInformationModel } from '../models/questionInformationModel';
+import { ChartColors, ChartPointStyles } from '../constants/radarChartConstants';
 
 export interface RadarChartContainerProps {
   maxResponseRange: number,
-  questions: ParticipantResponseModel[],
-  responses: QuestionInformationModel[],
+  questions: QuestionInformationModel[],
+  responses: ParticipantResponseModel[],
 };
 
 // pass in List of QuestionInformationModel and List of Participant Response Model
@@ -33,27 +34,29 @@ export default function RadarChartContainer(props: RadarChartContainerProps) {
     Legend
   );
 
-  const data = {
-    labels: ['Thing 1', 'Thing 2', 'Thing 3', 'Thing 4', 'Thing 5', 'Thing 6'],
-    datasets: [
+  var generateDatasets = function () {
+    let dataArray: [
       {
-        label: '# of Votes',
-        data: [21, 94, 32, 56, 24, 33],
-        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-        borderColor: 'rgba(255, 99, 132, 1)',
-        borderWidth: 1,
-      }, {
         label: 'My Second Dataset',
         data: [28, 48, 40, 19, 96, 27, 100],
         fill: true,
-        backgroundColor: 'rgba(54, 162, 235, 0.2)',
-        borderColor: 'rgb(54, 162, 235)',
-        pointBackgroundColor: 'rgb(54, 162, 235)',
-        pointBorderColor: '#fff',
-        pointHoverBackgroundColor: '#fff',
-        pointHoverBorderColor: 'rgb(54, 162, 235)'
-      }
-    ]
+        backgroundColor: ChartColors[0],
+        borderColor: ChartColors[0],
+        pointStyle: ChartPointStyle[3],
+        pointBackgroundColor: ChartColors[0],
+        pointBorderColor: 'black',
+        pointHoverBackgroundColor: 'black',
+        pointHoverBorderColor: ChartColors[0]
+      },
+    ];
+
+
+    return dataArray;
+ };
+
+  const data = {
+    labels: currentQuestions.map(q => q.questionName),
+    datasets: generateDatasets()
   };
 
   const options = {
