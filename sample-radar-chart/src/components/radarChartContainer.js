@@ -27,7 +27,7 @@ ChartJS.register(
     datasets: [
       {
         label: '# of Votes',
-        data: [2, 9, 3, 5, 2, 3],
+        data: [21, 94, 32, 56, 24, 33],
         backgroundColor: 'rgba(255, 99, 132, 0.2)',
         borderColor: 'rgba(255, 99, 132, 1)',
         borderWidth: 1,
@@ -42,12 +42,24 @@ ChartJS.register(
         pointHoverBackgroundColor: '#fff',
         pointHoverBorderColor: 'rgb(54, 162, 235)'
       }
-    ],
+    ]
+  };
+
+  const options = {
+    scales: {
+      r: {
+        angleLines: {
+          display: false
+        },
+        min: 0,
+        max: 200
+      }
+    }
   };
 
   return (
     <div className="h-48">
-      <Radar data={data} />
+      <Radar data={data} options={options} />
     </div>
     );
 }

@@ -1,7 +1,5 @@
-// this should contain two or three components
+// this should have two components
 
-// a question ID (likely an int)
+// A User ID
 
-// the shorthand label of the question (i.e., Engineering Principles)
-
-// the full text of the question.
+// A collection mapping question id to question result
