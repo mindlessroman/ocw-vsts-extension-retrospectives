@@ -73,7 +73,12 @@ export default function RadarChartContainer(props: RadarChartContainerProps) {
           display: false
         },
         min: 0,
-        max: maxResponseRange
+        max: maxResponseRange,
+        pointLabels: {
+          font: {
+            size: 18
+          }
+        }
       }
     },
     plugins: {
