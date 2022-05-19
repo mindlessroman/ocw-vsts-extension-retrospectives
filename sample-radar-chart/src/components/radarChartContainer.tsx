@@ -12,13 +12,14 @@ import { Radar } from 'react-chartjs-2';
 import { ParticipantResponseModel } from '../models/participantResponseModel';
 import { QuestionInformationModel } from '../models/questionInformationModel';
 
-// pass in List of QuestionInformationModel and List of Participant Response Model
-export default function RadarChartContainer({
+export interface RadarChartContainerProps {
   maxResponseRange: number,
-  questions: [QuestionInformationModel],
-  responses: [ParticipantResponseModel]
-}) {
+  questions: ParticipantResponseModel[],
+  responses: QuestionInformationModel[],
+};
 
+// pass in List of QuestionInformationModel and List of Participant Response Model
+export default function RadarChartContainer(props: RadarChartContainerProps) {
   ChartJS.register(
     RadialLinearScale,
     PointElement,

@@ -3,7 +3,7 @@
 // QuestionName : The Name of the Question being asked, such as
 //   'Engineering Principles'.
 // QuestionDetails: The detailed question text.
-export interface QuestionInformationModel {
+export type QuestionInformationModel = {
   questionId: number;
   questionName: string;
   questionDetails: string;

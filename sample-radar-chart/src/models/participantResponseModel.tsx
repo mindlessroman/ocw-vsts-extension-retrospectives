@@ -2,7 +2,7 @@
 // UserId : The ID of the User responding, an integer.
 // Responses : A collection of the user's responses mapped to
 // the corresponding question.
-export interface ParticipantResponseModel {
+export type ParticipantResponseModel = {
   userId: number;
-  responses: [number][];
+  responses: Map<number, number>;
 };
