@@ -11,6 +11,7 @@ import {
 import { Radar } from 'react-chartjs-2';
 import { ParticipantResponseModel } from '../models/participantResponseModel';
 import { QuestionInformationModel } from '../models/questionInformationModel';
+import { ChartColors, ChartPointStyles } from '../constants/radarChartConstants';
 
 export interface RadarChartContainerProps {
   maxResponseRange: number,
@@ -21,37 +22,13 @@ export interface RadarChartContainerProps {
 // pass in List of QuestionInformationModel and List of Participant Response Model
 export default function RadarChartContainer(props: RadarChartContainerProps) {
   const maxResponseRange = props.maxResponseRange;
-  const currentQuestions = props.questions;
+  const currentQuestions = props.questions ??
+    [{ questionName: "Test 1" },
+    { questionName: "Test 2" },
+    { questionName: "Test 3" },
+    { questionName: "Test 4" },
+    { questionName: "Test 5" }];
   const currentResponses = props.responses;
-
-  // Colors adopted from https://sashamaps.net/docs/resources/20-colors/
-  const chartColors = [
-    '#800000',
-    '#fabed4',
-    '#9A6324',
-    '#ffd8b1',
-    '#808000',
-    '#fffac8',
-    '#3cb44b',
-    '#000075',
-    '#911eb4',
-    '#f032e6'
-  ];
-
-  // Styles from ChartJS documentation
-  // https://www.chartjs.org/docs/master/configuration/elements.html#info
-  const chartPointStyles = [
-    'circle',
-    'cross',
-    'crossRot',
-    'dash',
-    'line',
-    'rect',
-    'rectRounded',
-    'rectRot',
-    'star',
-    'triangle'
-  ];
 
   ChartJS.register(
     RadialLinearScale,
@@ -63,18 +40,30 @@ export default function RadarChartContainer(props: RadarChartContainerProps) {
   );
 
   var generateDatasets = function () {
-    let dataArray: [
+    let dataArray = [
       {
-        label: 'My Second Dataset',
+        label:'My Second Dataset',
         data: [28, 48, 40, 19, 96, 27, 100],
         fill: true,
-        backgroundColor: chartColors[0],
-        borderColor: chartColors[0],
-        pointStyle: chartPointStyle[3],
-        pointBackgroundColor: chartColors[0],
+        backgroundColor: ChartColors[0],
+        borderColor: ChartColors[0],
+        pointStyle: ChartPointStyles[3],
+        pointBackgroundColor: ChartColors[0],
         pointBorderColor: 'black',
         pointHoverBackgroundColor: 'black',
-        pointHoverBorderColor: chartColors[0]
+        pointHoverBorderColor: ChartColors[0]
+      },
+      {
+        label:'My First Dataset',
+        data: [38, 58, 50, 29, 86, 37, 90],
+        fill: true,
+        backgroundColor: ChartColors[1],
+        borderColor: ChartColors[1],
+        pointStyle: ChartPointStyles[7],
+        pointBackgroundColor: ChartColors[1],
+        pointBorderColor: 'black',
+        pointHoverBackgroundColor: 'black',
+        pointHoverBorderColor: ChartColors[1]
       },
     ];
     return dataArray;
