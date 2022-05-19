@@ -1,4 +1,4 @@
-import React, { useEffect, useState }  from 'react';
+import React from 'react';
 import {
   Chart as ChartJS,
   RadialLinearScale,
@@ -9,18 +9,24 @@ import {
   Legend,
 } from 'chart.js';
 import { Radar } from 'react-chartjs-2';
+import { ParticipantResponseModel } from '../models/participantResponseModel';
+import { QuestionInformationModel } from '../models/questionInformationModel';
 
 // pass in List of QuestionInformationModel and List of Participant Response Model
-export default function RadarChartContainer() {
+export default function RadarChartContainer({
+  maxResponseRange: number,
+  questions: [QuestionInformationModel],
+  responses: [ParticipantResponseModel]
+}) {
 
-ChartJS.register(
-  RadialLinearScale,
-  PointElement,
-  LineElement,
-  Filler,
-  Tooltip,
-  Legend
-);
+  ChartJS.register(
+    RadialLinearScale,
+    PointElement,
+    LineElement,
+    Filler,
+    Tooltip,
+    Legend
+  );
 
   const data = {
     labels: ['Thing 1', 'Thing 2', 'Thing 3', 'Thing 4', 'Thing 5', 'Thing 6'],
@@ -61,5 +67,5 @@ ChartJS.register(
     <div className="h-48">
       <Radar data={data} options={options} />
     </div>
-    );
+  );
 }
