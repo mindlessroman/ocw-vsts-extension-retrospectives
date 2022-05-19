@@ -1,10 +1,11 @@
 type Props = {
-  onChangeHandler?: (e: any) => void
+  onChangeHandler?: (key: string, value: any) => void
+  key: string
   title: string
 }
 
 // @ts-ignore
-const TextInput = ({ title, onChangeHandler }: Props) => {
+const TextInput = ({ title, key, onChangeHandler }: Props) => {
   return (
     <div className="flex justify-center">
       <div className="mb-3 xl:w-96">
@@ -34,8 +35,8 @@ const TextInput = ({ title, onChangeHandler }: Props) => {
               focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
             "
           id="exampleFormControlInput1"
-          placeholder="Example label"
-          onChange={(e) => onChangeHandler(e.target.value)}
+          placeholder=""
+          onChange={(e) => onChangeHandler(key, e.target.value)}
         />
       </div>
     </div>

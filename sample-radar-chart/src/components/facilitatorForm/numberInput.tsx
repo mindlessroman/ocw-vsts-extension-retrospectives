@@ -1,5 +1,5 @@
 // @ts-ignore
-export function NumberInput({ title }) {
+export function NumberInput({ title, key, onChangeHandler }) {
   return (
     <div className="flex justify-center">
       <div className="mb-3 xl:w-96">
@@ -30,6 +30,7 @@ export function NumberInput({ title }) {
       "
           id="exampleNumber0"
           placeholder="Number input"
+          onChange={(e) => onChangeHandler(key, e.target.value)}
         />
       </div>
     </div>

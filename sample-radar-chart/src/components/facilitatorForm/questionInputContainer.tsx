@@ -5,19 +5,24 @@ import { DeleteButton } from './deleteButton'
 import { ItemContainer } from './itemContainer'
 import { AddButton } from './addButton'
 import { Button } from './button'
-
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons'
 
 export default function QuestionInputContainer() {
-  const textInputTitle = 'Name of Retrospective'
-  const facilitatorForm = {
-    retroTitle: '',
-    voteScaleMax: 1,
+  interface Data {
+    retroTitle: string
+    voteScaleMax: number
+    description: string
   }
 
-  const setRetroTitle = (value: string) => {
-    facilitatorForm['retroTitle'] = value
-    console.log(facilitatorForm)
+  let facilitatorFormData: Data = {
+    retroTitle: '',
+    voteScaleMax: 5,
+    description: '',
+  }
+
+  const setFormData = (key: string, value: string): void => {
+    facilitatorFormData = { ...facilitatorFormData, [key]: value }
+    console.log(facilitatorFormData)
   }
 
   return (
@@ -25,9 +30,22 @@ export default function QuestionInputContainer() {
       <h1 className="text-3xl font-bold text-left">
         Radar Chart Retrospective
       </h1>
-      <TextInput title={textInputTitle} onChangeHandler={setRetroTitle} />
-      <NumberInput title="Voting Scale" />
-      <TextAreaInput title="Description" />
+      <TextInput
+        title="Name of Retrospective"
+        key="retroTitle"
+        onChangeHandler={setFormData}
+      />
+      <NumberInput
+        title="Voting Scale"
+        key="voteScaleMax"
+        onChangeHandler={setFormData}
+      />
+      <TextAreaInput
+        title="Description"
+        placeholder="Please enter a description"
+        key="description"
+        onChangeHandler={setFormData}
+      />
       <DeleteButton />
       <ItemContainer />
       <AddButton />

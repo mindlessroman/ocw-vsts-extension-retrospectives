@@ -5,7 +5,7 @@ import { CheckboxInput } from './checkbox'
 export function ItemContainer() {
   return (
     <div className="itemContainer">
-      <TextInput title="Question/Item" />
+      {/* <TextInput title="Question/Item" /> */}
       <CheckboxInput title="Required?" />
     </div>
   )

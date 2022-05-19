@@ -1,5 +1,16 @@
+type Props = {
+  onChangeHandler?: (key: string, value: any) => void
+  placeholder: string
+  key: string
+  title: string
+}
 // @ts-ignore
-export function TextAreaInput({ title }) {
+export function TextAreaInput({
+  title,
+  key,
+  onChangeHandler,
+  placeholder,
+}: Props) {
   return (
     <div className="flex justify-center">
       <div className="mb-3 xl:w-96">
@@ -29,7 +40,8 @@ export function TextAreaInput({ title }) {
         "
           id="exampleFormControlTextarea1"
           rows={3}
-          placeholder="Your message"
+          placeholder={placeholder}
+          onChange={(e) => onChangeHandler(key, e.target.value)}
         ></textarea>
       </div>
     </div>
