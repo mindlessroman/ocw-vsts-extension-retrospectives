@@ -1,3 +1,6 @@
+ // Number of distinct styles
+export const ChartStyleCount = 10;
+
  // Colors adopted from https://sashamaps.net/docs/resources/20-colors/
  export const ChartColors = [
   '#800000',

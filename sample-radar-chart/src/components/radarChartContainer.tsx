@@ -11,7 +11,7 @@ import {
 import { Radar } from 'react-chartjs-2';
 import { ParticipantResponseModel } from '../models/participantResponseModel';
 import { QuestionInformationModel } from '../models/questionInformationModel';
-import { ChartColors, ChartPointStyles } from '../constants/radarChartConstants';
+import { ChartColors, ChartPointStyles, ChartStyleCount } from '../constants/radarChartConstants';
 
 export interface RadarChartContainerProps {
   maxResponseRange: number,
@@ -22,12 +22,7 @@ export interface RadarChartContainerProps {
 // pass in List of QuestionInformationModel and List of Participant Response Model
 export default function RadarChartContainer(props: RadarChartContainerProps) {
   const maxResponseRange = props.maxResponseRange;
-  const currentQuestions = props.questions ??
-    [{ questionName: "Test 1" },
-    { questionName: "Test 2" },
-    { questionName: "Test 3" },
-    { questionName: "Test 4" },
-    { questionName: "Test 5" }];
+  const currentQuestions = props.questions;
   const currentResponses = props.responses;
 
   ChartJS.register(
@@ -40,32 +35,29 @@ export default function RadarChartContainer(props: RadarChartContainerProps) {
   );
 
   var generateDatasets = function () {
-    let dataArray = [
+    let dataArray = [];
+
+    for (let i = 0; i < currentResponses.length; i++) {
+      const selectedStyleIndex = i % ChartStyleCount;
+      let sortedResponses: number[] = [];
+      for (let j = 0; j < currentQuestions.length; j++)
       {
-        label:'My Second Dataset',
-        data: [28, 48, 40, 19, 96, 27, 100],
+        sortedResponses.push(currentResponses[i].responses.get(j + 1));
+      }
+      dataArray.push({
+        label: `User ${currentResponses[i].userId}`,
+        data: sortedResponses,
         fill: true,
-        backgroundColor: ChartColors[0],
-        borderColor: ChartColors[0],
-        pointStyle: ChartPointStyles[3],
-        pointBackgroundColor: ChartColors[0],
+        borderColor: ChartColors[selectedStyleIndex],
+        radius: 5,
+        pointStyle: ChartPointStyles[selectedStyleIndex],
+        pointBackgroundColor: ChartColors[selectedStyleIndex],
         pointBorderColor: 'black',
         pointHoverBackgroundColor: 'black',
-        pointHoverBorderColor: ChartColors[0]
-      },
-      {
-        label:'My First Dataset',
-        data: [38, 58, 50, 29, 86, 37, 90],
-        fill: true,
-        backgroundColor: ChartColors[1],
-        borderColor: ChartColors[1],
-        pointStyle: ChartPointStyles[7],
-        pointBackgroundColor: ChartColors[1],
-        pointBorderColor: 'black',
-        pointHoverBackgroundColor: 'black',
-        pointHoverBorderColor: ChartColors[1]
-      },
-    ];
+        pointHoverBorderColor: ChartColors[selectedStyleIndex]
+      })
+    };
+
     return dataArray;
   };
 
@@ -83,6 +75,11 @@ export default function RadarChartContainer(props: RadarChartContainerProps) {
         min: 0,
         max: maxResponseRange
       }
+    },
+    plugins: {
+      legend: {
+        display: false,
+      },
     }
   };
 
