@@ -1,15 +1,15 @@
 export function TextAreaInput(props) {
   return (
-    <div class="flex justify-center">
-      <div class="mb-3 xl:w-96">
+    <div className="flex justify-center">
+      <div className="mb-3 xl:w-96">
         <label
           for="exampleFormControlTextarea1"
-          class="form-label inline-block mb-2 text-gray-700"
+          className="form-label inline-block mb-2 text-gray-700"
         >
           {props.title}
         </label>
         <textarea
-          class="
+          className="
           form-control
           block
           w-full
