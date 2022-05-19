@@ -1,4 +1,4 @@
-import { TextInput } from './textInput'
+import TextInput from './textInput'
 import { CheckboxInput } from './checkbox'
 
 //Whoa look at all these cool components!

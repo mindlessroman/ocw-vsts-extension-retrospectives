@@ -1,12 +1,13 @@
-export function NumberInput(props) {
+// @ts-ignore
+export function NumberInput({ title }) {
   return (
     <div className="flex justify-center">
       <div className="mb-3 xl:w-96">
         <label
-          for="exampleNumber0"
+          htmlFor="exampleNumber0"
           className="form-label inline-block mb-2 text-gray-700"
         >
-          {props.title}
+          {title}
         </label>
         <input
           type="number"

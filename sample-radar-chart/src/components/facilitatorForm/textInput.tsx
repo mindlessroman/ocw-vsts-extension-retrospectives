@@ -1,12 +1,21 @@
-export function TextInput(props) {
+import { ChangeEvent } from 'react'
+
+//YAAAASSS
+type Props = {
+  onChangeHandler?: (e: any) => void
+  title: string
+}
+
+// @ts-ignore
+const TextInput = ({ title, onChangeHandler }: Props) => {
   return (
     <div className="flex justify-center">
       <div className="mb-3 xl:w-96">
         <label
-          for="exampleFormControlInput1"
+          htmlFor="exampleFormControlInput1"
           className="form-label inline-block mb-2 text-gray-700"
         >
-          {props.title}
+          {title}
         </label>
         <input
           type="text"
@@ -29,8 +38,11 @@ export function TextInput(props) {
             "
           id="exampleFormControlInput1"
           placeholder="Example label"
+          onChange={(e) => onChangeHandler(e.target.value)}
         />
       </div>
     </div>
   )
 }
+
+export default TextInput

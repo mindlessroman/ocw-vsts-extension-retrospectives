@@ -1,12 +1,13 @@
-export function TextAreaInput(props) {
+// @ts-ignore
+export function TextAreaInput({ title }) {
   return (
     <div className="flex justify-center">
       <div className="mb-3 xl:w-96">
         <label
-          for="exampleFormControlTextarea1"
+          htmlFor="exampleFormControlTextarea1"
           className="form-label inline-block mb-2 text-gray-700"
         >
-          {props.title}
+          {title}
         </label>
         <textarea
           className="
@@ -27,7 +28,7 @@ export function TextAreaInput(props) {
           focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
         "
           id="exampleFormControlTextarea1"
-          rows="3"
+          rows={3}
           placeholder="Your message"
         ></textarea>
       </div>

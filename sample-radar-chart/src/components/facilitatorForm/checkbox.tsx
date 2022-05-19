@@ -1,4 +1,5 @@
-export function CheckboxInput(props) {
+// @ts-ignore
+export function CheckboxInput({ title }) {
   return (
     <div className="flex justify-center">
       <div>
@@ -12,9 +13,9 @@ export function CheckboxInput(props) {
           />
           <label
             className="form-check-label inline-block text-gray-800"
-            for="flexCheckChecked"
+            htmlFor="flexCheckChecked"
           >
-            {props.title}
+            {title}
           </label>
         </div>
       </div>
