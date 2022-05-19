@@ -12,6 +12,7 @@ export default function QuestionInputContainer() {
   const textInputTitle = 'Name of Retrospective'
   const facilitatorForm = {
     retroTitle: '',
+    voteScaleMax: 1,
   }
 
   const setRetroTitle = (value: string) => {

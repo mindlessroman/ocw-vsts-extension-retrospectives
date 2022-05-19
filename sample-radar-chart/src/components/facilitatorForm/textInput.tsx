@@ -1,6 +1,3 @@
-import { ChangeEvent } from 'react'
-
-//YAAAASSS
 type Props = {
   onChangeHandler?: (e: any) => void
   title: string
